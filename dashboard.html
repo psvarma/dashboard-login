@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <section class="content">
+            <h1>Welcome <span class="username" id="displayUser">User</span></h1>
+      </section>
+    </main>
+  </div>
+  <script>
+    if(localStorage.getItem('user')){
+        displayUser.innerHTML = localStorage.getItem('user')
+    } else {
+        alert("Please login!!!");
+        window.location = 'login.html'
+    }
+
+    const logout=()=>{
+        localStorage.clear();
+        window.location = 'login.html'
+    }
+  </script>
+</body>
+</html>
